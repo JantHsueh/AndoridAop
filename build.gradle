@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        //TODO 需要更换成你自己的路径
+//        TODO 必须更换为你自己的路径
         maven {
             url 'file://C:/AndroidStudioProjects/AndroidAOP/traceplugin'
         }

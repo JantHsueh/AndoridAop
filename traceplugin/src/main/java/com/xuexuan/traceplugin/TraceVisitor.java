@@ -29,7 +29,7 @@ public class TraceVisitor extends ClassVisitor {
     private String[] interfaces;
 
     public TraceVisitor(String className, ClassVisitor classVisitor) {
-        super(Opcodes.ASM5, classVisitor);
+        super(Opcodes.ASM7, classVisitor);
     }
 
     /**
@@ -46,6 +46,7 @@ public class TraceVisitor extends ClassVisitor {
     public MethodVisitor visitMethod(final int access, final String name, final String desc, final String signature,
                                      String[] exceptions) {
         MethodVisitor methodVisitor = cv.visitMethod(access, name, desc, signature, exceptions);
+
         methodVisitor = new AdviceAdapter(Opcodes.ASM5, methodVisitor, access, name, desc) {
 
             private boolean isInject() {
